@@ -1,0 +1,26 @@
+TASK1： 文本处理
+
+本任务必须使用 python3 完成。相关文件在files文件夹。
+1、把 new.txt 里面的信息，通过 labels.txt 把 lables_id 转为 lables_name，插入 old.json 里面对应json对象（以 fileid 和 senid 确保唯一性），新建第5个键值对 newmentions，类同于mentions 键值对。再一起写入 new.json 文件
+2、利用 new.json 展示每一个json对象 mentions 和 newmentions 之间的差异。写入 diff.txt 文件（格式随意，建议使用类似 diff 的格式输出。）
+
+files文件夹中文件格式说明：
+old.json格式：
+{	"tokens": 
+		["John", "R.", "Wilke", "contribued", "to", "this", "article", "."], 
+	"senid": 41, 
+	"mentions": 
+		[{"start": 0, "labels": ["/PERSON"], "end": 3}], 
+	"fileid": "WSJ1829"
+}
+每行一个json对象，里面有4组键值对：fileid、senid、tokens和mentions。其中mentions的值可能是多个json对象的列表，其中一个对象包含start、labels(labels_name)和end这3个键值对。
+
+new.txt格式：
+	WSJ1380_13_-1_-1	6,7
+每行对应一个新测试的mention，前半部分用下划线隔开的是 fileid、senid、mention start、mention end，后半部分是mention labels_id
+
+labels.txt格式：
+	/SUBSTANCE	13	5562
+每行对应一个labels的 labels_name, labels_id 和 labels_count这3个值。（labels_count在本task中没有使用）
+
+
